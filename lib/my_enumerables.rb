@@ -1,7 +1,9 @@
 module Enumerable
   # Your code goes here
-  def my_all
-    
+  def my_all?
+    result = true
+    self.my_each {|elem| result = false unless yield elem}
+    result
   end
 end
 
