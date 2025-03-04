@@ -31,6 +31,13 @@ module Enumerable
       index += 1
     end
   end
+
+  def my_inject(initial = nil)
+    accumulator = initial || self.first
+    start = initial ? 0 : 1
+    self[start..-1].my_each { |elem| accumulator = yield(accumulator, elem) }
+    accumulator
+  end
 end
 
 # You will first have to define my_each
