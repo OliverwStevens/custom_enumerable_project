@@ -6,6 +6,12 @@ module Enumerable
     result
   end
 
+  def my_any?
+    result = false
+    self.my_each {|elem| result = true if yield elem}
+    result
+  end
+
   def my_count
     counter = 0
     self.my_each do |elem|
