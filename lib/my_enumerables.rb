@@ -38,6 +38,12 @@ module Enumerable
     self[start..-1].my_each { |elem| accumulator = yield(accumulator, elem) }
     accumulator
   end
+
+  def my_map
+    result = []
+    self.my_each { |elem| result.push(yield elem)}
+    result
+  end
 end
 
 # You will first have to define my_each
