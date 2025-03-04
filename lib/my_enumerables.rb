@@ -50,6 +50,12 @@ module Enumerable
     self.my_each { |elem| result = false if yield elem }
     result
   end
+
+  def my_select
+    result = []
+    self.my_each { |elem| result.push(elem) if yield elem}
+    result
+  end
 end
 
 # You will first have to define my_each
